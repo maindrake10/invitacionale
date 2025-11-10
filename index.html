@@ -74,4 +74,194 @@
             width: 70vw;
             height: 70vw;
             bottom: -15vh;
-            right: -25
+            right: -25vw;
+            animation-delay: 7s;
+            opacity: 0.4;
+        }
+
+        @keyframes floatEffect {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(10vw, 15vh) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+
+        .fade-in { animation: fadeIn 1.5s ease-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .text-principal { color: var(--color-principal); }
+        .text-secundario { color: var(--color-secundario); }
+
+        .btn-accion {
+            background-color: var(--color-secundario);
+            transition: all 0.3s ease;
+        }
+
+        .btn-accion:hover {
+            background-color: var(--color-principal);
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body class="p-4">
+
+    <div class="container max-w-2xl w-full mx-auto bg-white rounded-xl shadow-2xl overflow-hidden fade-in border-4 border-double border-gray-100 relative z-10">
+
+        <div class="text-center py-10 sm:py-16 bg-gradient-to-b from-white to-[var(--color-fondo-claro)] px-4">
+            <p class="text-xl sm:text-2xl font-normal mb-2 text-gray-700 font-[var(--font-texto)] tracking-wide">
+                Te invito a mi
+            </p>
+            <h1 class="text-5xl sm:text-6xl font-bold mb-1 text-principal font-[var(--font-titulo)] leading-tight">
+                Acto de Colación
+            </h1>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-secundario font-[var(--font-texto)] uppercase tracking-wider mb-6">
+                Colegio Genérico
+            </h2>
+            <div class="h-1 w-20 bg-principal mx-auto mb-6"></div>
+            
+            <div class="flex flex-col items-center justify-center mb-4">
+                <i class="fas fa-graduation-cap text-4xl sm:text-5xl text-principal mb-2"></i>
+                <h3 class="font-bold text-gray-700 nombre-graduada">
+                    Alejandra Yudith Benítez Escobar
+                </h3>
+            </div>
+        </div>
+
+        <div class="p-6 sm:p-10 text-center">
+            <p class="text-lg text-gray-700 italic font-[var(--font-texto)] mb-10 border-l-4 border-principal pl-4">
+                "El final de una etapa marca el comienzo de nuevos horizontes. Hoy celebramos no solo los logros alcanzados, sino también los sueños que están por venir."
+            </p>
+
+            <h4 class="text-2xl font-bold text-secundario mb-4 font-[var(--font-titulo)] uppercase">Cuenta Regresiva</h4>
+            <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto mb-10 p-4 border rounded-lg bg-gray-50">
+                <div class="text-center">
+                    <div class="text-3xl sm:text-5xl font-extrabold text-principal" id="dias">00</div>
+                    <div class="text-sm text-gray-600 uppercase mt-1">Días</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl sm:text-5xl font-extrabold text-principal" id="horas">00</div>
+                    <div class="text-sm text-gray-600 uppercase mt-1">Horas</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl sm:text-5xl font-extrabold text-principal" id="minutos">00</div>
+                    <div class="text-sm text-gray-600 uppercase mt-1">Minutos</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl sm:text-5xl font-extrabold text-principal" id="segundos">00</div>
+                    <div class="text-sm text-gray-600 uppercase mt-1">Segundos</div>
+                </div>
+            </div>
+            
+            <div class="h-1 w-1/3 bg-gray-200 mx-auto mb-10"></div>
+
+            <div class="mb-10 flex flex-col items-center">
+                <div class="text-4xl font-[var(--font-titulo)] text-secundario mb-4">
+                    <i class="fas fa-calendar-alt mr-2 text-principal"></i>
+                    <span class="font-extrabold text-principal">19 | 12 | 2025</span>
+                </div>
+                <div class="text-3xl font-semibold font-[var(--font-titulo)] text-gray-700 mb-6">
+                    <span class="text-xl text-gray-500 font-normal">Horario:</span> 20:30 HS
+                </div>
+            </div>
+
+            <div class="space-y-4 mb-10">
+                <div class="text-2xl text-gray-800 font-[var(--font-texto)] font-semibold">
+                    <i class="fas fa-map-marker-alt mr-2 text-principal"></i>
+                    Continental Parquet
+                    <br>
+                    <span class="text-xl font-normal text-gray-600">Km 4</span>
+                </div>
+                <a href="https://maps.app.goo.gl/JwGMqBGtSMEQaNit7" 
+                    target="_blank" 
+                    class="inline-block px-8 py-3 text-white rounded-full font-bold btn-accion shadow-lg">
+                    <i class="fas fa-route mr-2"></i>
+                    Ver Ubicación en Mapa
+                </a>
+            </div>
+
+            <div class="bg-[var(--color-fondo-claro)] p-6 rounded-lg">
+                <h4 class="text-2xl font-[var(--font-titulo)] text-principal text-center mb-6 border-b pb-2">
+                    Código de Vestimenta
+                </h4>
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="col-span-3 text-center">
+                        <i class="fas fa-user-tie text-4xl text-secundario mb-2"></i>
+                        <p class="text-gray-700 font-bold text-lg">Elegante</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 pt-4 border-t border-gray-200">
+                <p class="text-lg mb-6 text-gray-700 font-semibold">Agradecemos confirmar asistencia hasta el 30/11/2025</p>
+                <a href="#" id="confirm-button"
+                    class="inline-block px-10 py-4 text-white font-bold rounded-full text-lg uppercase tracking-wider btn-accion shadow-xl">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    Confirmar Asistencia
+                </a>
+            </div>
+            
+        </div>
+
+        <footer class="bg-gradient-to-t from-white to-[var(--color-fondo-claro)] py-6 px-4 text-center border-t border-gray-100">
+            <p class="text-gray-600 font-[var(--font-texto)]">Su presencia hará este momento aún más especial. ¡Gracias!</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Configurar la fecha objetivo (19 de Diciembre de 2025 a las 20:30)
+        // Se verificó la sintaxis del Date Object.
+        const fechaObjetivo = new Date('2025-12-19T20:30:00').getTime();
+
+        function actualizarContador() {
+            const ahora = new Date().getTime();
+            const diferencia = fechaObjetivo - ahora;
+
+            // Constantes de tiempo
+            const _SEGUNDO = 1000;
+            const _MINUTO = _SEGUNDO * 60;
+            const _HORA = _MINUTO * 60;
+            const _DIA = _HORA * 24;
+
+            // Cálculo
+            const dias = Math.floor(diferencia / _DIA);
+            const horas = Math.floor((diferencia % _DIA) / _HORA);
+            const minutos = Math.floor((diferencia % _HORA) / _MINUTO);
+            const segundos = Math.floor((diferencia % _MINUTO) / _SEGUNDO);
+
+            // Función de ayuda para rellenar con un cero
+            const pad = (num) => num.toString().padStart(2, '0');
+
+            // Mostrar el contador
+            // Se garantiza que los IDs de los elementos existan en el HTML
+            document.getElementById('dias').textContent = pad(dias);
+            document.getElementById('horas').textContent = pad(horas);
+            document.getElementById('minutos').textContent = pad(minutos);
+            document.getElementById('segundos').textContent = pad(segundos);
+
+            // Detener el contador
+            if (diferencia < 0) {
+                clearInterval(intervalo);
+                document.getElementById('dias').textContent = '00';
+                document.getElementById('horas').textContent = '00';
+                document.getElementById('minutos').textContent = '00';
+                document.getElementById('segundos').textContent = '00';
+            }
+        }
+
+        // Iniciar y actualizar el contador cada segundo
+        actualizarContador();
+        const intervalo = setInterval(actualizarContador, 1000);
+
+        // Si se carga la página después de que la diferencia es negativa, el intervalo no se limpiaría inmediatamente,
+        // pero la llamada a actualizarContador() al inicio lo establece en '00' inmediatamente si ya pasó la fecha.
+
+    </script>
+</body>
+</html>
