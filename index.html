@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación de Graduación - Alejandra Yudith</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@400;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -15,24 +15,62 @@
             --color-principal: #C8AE7F; /* Tono de bronce/dorado suave */
             /* Azul/Celeste: El color secundario */
             --color-secundario: #4682B4; /* Azul acero, más sobrio */
-            --color-fondo-claro: #F0F8FF; /* Azul muy claro (AliceBlue) */
+            --color-fondo-claro: #E0F2F7; /* Azul muy claro para el fondo */
+            --color-fondo-intermedio: #B2D8E0; /* Un azul un poco más intenso para el gradiente */
             
             --font-titulo: 'Playfair Display', serif;
             --font-texto: 'Montserrat', sans-serif;
-            --font-cursiva: 'Dancing Script', cursive; /* Nueva fuente elegante */
+            --font-cursiva: 'Great Vibes', cursive; /* Nueva fuente cursiva elegante */
         }
 
-        /* Estilo para el fondo con un gradiente suave */
+        /* Estilo para el fondo con un gradiente suave y efecto de "humo" */
         body {
             font-family: var(--font-texto);
-            background-color: var(--color-fondo-claro);
-            background-image: linear-gradient(135deg, #F0F8FF 0%, #D8EBF7 100%);
+            background: linear-gradient(160deg, var(--color-fondo-claro) 0%, #ffffff 40%, var(--color-fondo-intermedio) 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 1rem;
+            position: relative; /* Necesario para los pseudo-elementos */
+            overflow-x: hidden; /* Evitar scroll horizontal si los efectos se salen */
         }
+
+        /* Efectos de "humo" o nubes suaves */
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1; /* Asegura que esté detrás del contenido */
+            animation: floatEffect 15s infinite ease-in-out alternate;
+        }
+
+        body::before {
+            width: 80vw;
+            height: 80vw;
+            top: -20vh;
+            left: -30vw;
+            animation-delay: 0s;
+            opacity: 0.6;
+        }
+
+        body::after {
+            width: 70vw;
+            height: 70vw;
+            bottom: -15vh;
+            right: -25vw;
+            animation-delay: 7s;
+            opacity: 0.4;
+        }
+
+        @keyframes floatEffect {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(10vw, 15vh) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
 
         /* Clase para la animación inicial de entrada */
         .fade-in {
@@ -54,26 +92,14 @@
             color: var(--color-secundario);
         }
 
-        /* Estilo para el botón de ubicación */
-        .btn-ubicacion {
+        /* Estilo para el botón de ubicación y confirmación */
+        .btn-accion {
             background-color: var(--color-secundario);
             transition: all 0.3s ease;
         }
 
-        .btn-ubicacion:hover {
+        .btn-accion:hover {
             background-color: var(--color-principal);
-            transform: scale(1.05);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Estilo para el botón de confirmación */
-        .btn-confirmacion {
-            background-color: var(--color-principal);
-            transition: all 0.3s ease;
-        }
-
-        .btn-confirmacion:hover {
-            background-color: var(--color-secundario);
             transform: scale(1.05);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
@@ -82,7 +108,7 @@
 </head>
 <body class="p-4">
 
-    <div class="container max-w-2xl w-full mx-auto bg-white rounded-xl shadow-2xl overflow-hidden fade-in border-4 border-double border-gray-100">
+    <div class="container max-w-2xl w-full mx-auto bg-white rounded-xl shadow-2xl overflow-hidden fade-in border-4 border-double border-gray-100 relative z-10">
 
         <div class="text-center py-10 sm:py-16 bg-gradient-to-b from-white to-[var(--color-fondo-claro)] px-4">
             <p class="text-xl sm:text-2xl font-normal mb-2 text-gray-700 font-[var(--font-texto)] tracking-wide">
@@ -95,9 +121,12 @@
                 Colegio Genérico
             </h2>
             <div class="h-1 w-20 bg-principal mx-auto mb-6"></div>
-            <h3 class="text-4xl sm:text-5xl font-bold text-gray-700 font-[var(--font-cursiva)] leading-tight">
-                Alejandra Yudith Benítez Escobar
-            </h3>
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <i class="fas fa-graduation-cap text-3xl sm:text-4xl text-principal"></i>
+                <h3 class="text-4xl sm:text-5xl font-bold text-gray-700 font-[var(--font-cursiva)] leading-tight">
+                    Alejandra Yudith Benítez Escobar
+                </h3>
+            </div>
         </div>
 
         <div class="p-6 sm:p-10 text-center">
@@ -130,7 +159,7 @@
             <div class="mb-10">
                 <div class="text-4xl font-[var(--font-titulo)] text-secundario mb-4">
                     <i class="fas fa-calendar-alt mr-2 text-principal"></i>
-                    19 de Diciembre de 2025
+                    <span class="font-extrabold text-principal">19 | 12 | 2025</span>
                 </div>
                 <div class="text-3xl font-semibold font-[var(--font-titulo)] text-gray-700 mb-6">
                     <span class="text-xl text-gray-500 font-normal">Horario:</span> 20:30 HS
@@ -146,7 +175,7 @@
                 </div>
                 <a href="https://maps.app.goo.gl/JwGMqBGtSMEQaNit7" 
                     target="_blank" 
-                    class="inline-block px-8 py-3 text-white rounded-full font-bold btn-ubicacion shadow-lg">
+                    class="inline-block px-8 py-3 text-white rounded-full font-bold btn-accion shadow-lg">
                     <i class="fas fa-route mr-2"></i>
                     Ver Ubicación en Mapa
                 </a>
@@ -167,7 +196,7 @@
             <div class="mt-10 pt-4 border-t border-gray-200">
                 <p class="text-lg mb-6 text-gray-700 font-semibold">Agradecemos confirmar asistencia hasta el 30/11/2025</p>
                 <a href="#" id="confirm-button"
-                    class="inline-block px-10 py-4 text-white font-bold rounded-full text-lg uppercase tracking-wider btn-confirmacion shadow-xl">
+                    class="inline-block px-10 py-4 text-white font-bold rounded-full text-lg uppercase tracking-wider btn-accion shadow-xl">
                     <i class="fas fa-check-circle mr-2"></i>
                     Confirmar Asistencia
                 </a>
@@ -175,56 +204,4 @@
             
         </div>
 
-        <footer class="bg-gradient-to-t from-white to-[var(--color-fondo-claro)] py-6 px-4 text-center border-t border-gray-100">
-            <p class="text-gray-600 font-[var(--font-texto)]">Su presencia hará este momento aún más especial. ¡Gracias!</p>
-        </footer>
-
-    </div>
-
-    <script>
-        // Configurar la fecha objetivo (19 de Diciembre de 2025 a las 20:30)
-        const fechaObjetivo = new Date('2025-12-19T20:30:00').getTime();
-
-        function actualizarContador() {
-            const ahora = new Date().getTime();
-            const diferencia = fechaObjetivo - ahora;
-
-            // Constantes de tiempo
-            const _SEGUNDO = 1000;
-            const _MINUTO = _SEGUNDO * 60;
-            const _HORA = _MINUTO * 60;
-            const _DIA = _HORA * 24;
-
-            // Cálculo de días, horas, minutos y segundos
-            const dias = Math.floor(diferencia / _DIA);
-            const horas = Math.floor((diferencia % _DIA) / _HORA);
-            const minutos = Math.floor((diferencia % _HORA) / _MINUTO);
-            const segundos = Math.floor((diferencia % _MINUTO) / _SEGUNDO);
-
-            // Función de ayuda para rellenar con un cero si es necesario
-            const pad = (num) => num.toString().padStart(2, '0');
-
-            // Mostrar el contador
-            document.getElementById('dias').textContent = pad(dias);
-            document.getElementById('horas').textContent = pad(horas);
-            document.getElementById('minutos').textContent = pad(minutos);
-            document.getElementById('segundos').textContent = pad(segundos);
-
-            // Detener el contador si ya pasó la fecha
-            if (diferencia < 0) {
-                clearInterval(intervalo);
-                document.getElementById('dias').textContent = '00';
-                document.getElementById('horas').textContent = '00';
-                document.getElementById('minutos').textContent = '00';
-                document.getElementById('segundos').textContent = '00';
-                console.log("¡El evento ha comenzado!");
-            }
-        }
-
-        // Iniciar y actualizar el contador cada segundo
-        actualizarContador();
-        const intervalo = setInterval(actualizarContador, 1000);
-
-    </script>
-</body>
-</html>
+        <footer class="bg-gradient-to-t from-white to-[var(--color-fondo-claro)] py-6 px-4 text-center border-t border-gray
