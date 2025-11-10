@@ -49,19 +49,19 @@
             }
         }
         
-        /* 1. ESTILO MÁS FINO PARA EL TÍTULO PRINCIPAL */
+        /* ESTILO MÁS FINO PARA EL TÍTULO PRINCIPAL */
         .titulo-principal {
             font-family: var(--font-titulo);
-            font-weight: 600; /* Un poco menos pesado que el 'bold' */
-            letter-spacing: 0.1em; /* Mayor espaciado entre letras */
-            text-transform: capitalize; /* Asegura que solo la primera letra sea mayúscula, más elegante */
+            font-weight: 600; 
+            letter-spacing: 0.1em; 
+            text-transform: capitalize; 
         }
         
-        /* 2. ESTILO MÁS ELEGANTE PARA EL COLEGIO */
+        /* ESTILO MÁS ELEGANTE PARA EL COLEGIO */
         .subtitulo-colegio {
             font-family: var(--font-titulo);
-            font-weight: 400; /* Peso regular, se ve más formal */
-            text-transform: none; /* Desactivar mayúsculas para un look más clásico */
+            font-weight: 400; 
+            text-transform: none; 
             letter-spacing: 0.05em;
         }
         
@@ -210,7 +210,23 @@
             </div>
 
             <div class="mt-10 pt-4 border-t border-gray-200">
-                <p class="text-lg mb-6 text-gray-700 font-semibold">Si puedes confirmar tu asistencia hasta el el 22/11/2025, te estaré muy agradecida</p>
+                
+                <div class="bg-gray-50 p-6 rounded-lg mb-8 border-l-4 border-principal shadow-inner">
+                    <p class="text-lg text-gray-700 font-semibold mb-2 font-[var(--font-texto)]">
+                        Para ayudar a cubrir los gastos del evento, solicitamos un pequeño aporte de:
+                    </p>
+                    <p class="text-2xl font-extrabold text-principal font-[var(--font-titulo)] mb-3">
+                        Gs. 170.000 por persona
+                    </p>
+                    <p class="text-base text-gray-600">
+                        **Alias (Transferencia):** <span class="font-mono font-bold text-secundario">3377974</span>
+                    </p>
+                    <p class="text-sm text-gray-500 italic mt-3">
+                        ¡Agradecemos mucho tu colaboración!
+                    </p>
+                </div>
+                
+                <p class="text-lg mb-6 text-gray-700 font-semibold">Si puedes confirmar tu asistencia hasta el el 10/12/2025, te estaré muy agradecida</p>
                 <a href="https://forms.gle/P3iNMajwvhMf4Pk19"
                     target="_blank" 
                     class="inline-block px-10 py-4 text-white font-bold rounded-full text-lg uppercase tracking-wider btn-accion shadow-xl">
@@ -266,4 +282,3 @@
     </script>
 </body>
 </html>
-
