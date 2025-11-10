@@ -49,7 +49,23 @@
             }
         }
         
-        /* Efectos de "humo" o nubes suaves (mantener) */
+        /* 1. ESTILO MÁS FINO PARA EL TÍTULO PRINCIPAL */
+        .titulo-principal {
+            font-family: var(--font-titulo);
+            font-weight: 600; /* Un poco menos pesado que el 'bold' */
+            letter-spacing: 0.1em; /* Mayor espaciado entre letras */
+            text-transform: capitalize; /* Asegura que solo la primera letra sea mayúscula, más elegante */
+        }
+        
+        /* 2. ESTILO MÁS ELEGANTE PARA EL COLEGIO */
+        .subtitulo-colegio {
+            font-family: var(--font-titulo);
+            font-weight: 400; /* Peso regular, se ve más formal */
+            text-transform: none; /* Desactivar mayúsculas para un look más clásico */
+            letter-spacing: 0.05em;
+        }
+        
+        /* Efectos adicionales (mantener) */
         body::before, body::after {
             content: '';
             position: fixed;
@@ -108,12 +124,18 @@
             <p class="text-xl sm:text-2xl font-normal mb-2 text-gray-700 font-[var(--font-texto)] tracking-wide">
                 Te invito a mi
             </p>
-            <h1 class="text-5xl sm:text-6xl font-bold mb-1 text-principal font-[var(--font-titulo)] leading-tight">
+            
+            <h1 class="text-5xl sm:text-6xl font-bold mb-1 text-principal leading-tight titulo-principal">
                 Acto de Colación
             </h1>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-secundario font-[var(--font-texto)] uppercase tracking-wider mb-6">
-                Tercer año - Colegio Dr. Roberto L. Petit
+            
+            <p class="text-xl sm:text-2xl font-normal text-secundario font-[var(--font-texto)] tracking-wider mb-2">
+                Tercer año
+            </p>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-secundario mb-6 subtitulo-colegio">
+                Colegio Dr. Roberto L. Petit
             </h2>
+            
             <div class="h-1 w-20 bg-principal mx-auto mb-6"></div>
             
             <div class="flex flex-col items-center justify-center mb-4">
@@ -200,7 +222,7 @@
         </div>
 
         <footer class="bg-gradient-to-t from-white to-[var(--color-fondo-claro)] py-6 px-4 text-center border-t border-gray-100">
-            <p class="text-gray-600 font-[var(--font-texto)]">Tu presencia hará este momento aún más especial. ¡Gracias!</p>
+            <p class="text-gray-600 font-[var(--font-texto)]">Su presencia hará este momento aún más especial. ¡Gracias!</p>
         </footer>
 
     </div>
