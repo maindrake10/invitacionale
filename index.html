@@ -15,12 +15,12 @@
             --color-principal: #C8AE7F; /* Tono de bronce/dorado suave */
             /* Azul/Celeste: El color secundario */
             --color-secundario: #4682B4; /* Azul acero, más sobrio */
-            --color-fondo-claro: #E0F2F7; /* Azul muy claro para el fondo */
-            --color-fondo-intermedio: #B2D8E0; /* Un azul un poco más intenso para el gradiente */
+            --color-fondo-claro: #E0F2F7; 
+            --color-fondo-intermedio: #B2D8E0; 
             
             --font-titulo: 'Playfair Display', serif;
             --font-texto: 'Montserrat', sans-serif;
-            --font-cursiva: 'Great Vibes', cursive; /* Nueva fuente cursiva elegante */
+            --font-cursiva: 'Great Vibes', cursive; /* FUENTE A FORZAR */
         }
 
         /* Estilo para el fondo con un gradiente suave y efecto de "humo" */
@@ -32,18 +32,32 @@
             justify-content: center;
             align-items: center;
             padding: 1rem;
-            position: relative; /* Necesario para los pseudo-elementos */
-            overflow-x: hidden; /* Evitar scroll horizontal si los efectos se salen */
+            position: relative;
+            overflow-x: hidden;
         }
 
-        /* Efectos de "humo" o nubes suaves */
+        /* Corregir la aplicación de la tipografía cursiva */
+        .nombre-graduada {
+            font-family: var(--font-cursiva) !important; /* Forzar el uso de la fuente */
+            font-weight: 400; /* Great Vibes generalmente usa peso regular */
+            font-size: 2.75rem; /* Ajustar tamaño para que se vea más cursiva en móvil */
+            line-height: 1.1;
+        }
+        @media (min-width: 640px) { /* sm breakpoint */
+            .nombre-graduada {
+                font-size: 4rem; /* Tamaño grande en escritorio */
+            }
+        }
+        
+        /* Efectos de "humo" o nubes suaves (mantener) */
         body::before, body::after {
+            /* ... (Se mantiene el código del efecto de humo) ... */
             content: '';
             position: fixed;
             background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
             border-radius: 50%;
             pointer-events: none;
-            z-index: -1; /* Asegura que esté detrás del contenido */
+            z-index: -1;
             animation: floatEffect 15s infinite ease-in-out alternate;
         }
 
@@ -60,148 +74,4 @@
             width: 70vw;
             height: 70vw;
             bottom: -15vh;
-            right: -25vw;
-            animation-delay: 7s;
-            opacity: 0.4;
-        }
-
-        @keyframes floatEffect {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(10vw, 15vh) scale(1.1); }
-            100% { transform: translate(0, 0) scale(1); }
-        }
-
-
-        /* Clase para la animación inicial de entrada */
-        .fade-in {
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px) scale(0.98); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        /* Estilo para los textos que usan el color principal (dorado/metálico) */
-        .text-principal {
-            color: var(--color-principal);
-        }
-
-        /* Estilo para los textos que usan el color secundario (azul sobrio) */
-        .text-secundario {
-            color: var(--color-secundario);
-        }
-
-        /* Estilo para el botón de ubicación y confirmación */
-        .btn-accion {
-            background-color: var(--color-secundario);
-            transition: all 0.3s ease;
-        }
-
-        .btn-accion:hover {
-            background-color: var(--color-principal);
-            transform: scale(1.05);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-    </style>
-</head>
-<body class="p-4">
-
-    <div class="container max-w-2xl w-full mx-auto bg-white rounded-xl shadow-2xl overflow-hidden fade-in border-4 border-double border-gray-100 relative z-10">
-
-        <div class="text-center py-10 sm:py-16 bg-gradient-to-b from-white to-[var(--color-fondo-claro)] px-4">
-            <p class="text-xl sm:text-2xl font-normal mb-2 text-gray-700 font-[var(--font-texto)] tracking-wide">
-                Te invito a mi
-            </p>
-            <h1 class="text-5xl sm:text-6xl font-bold mb-1 text-principal font-[var(--font-titulo)] leading-tight">
-                Acto de Colación
-            </h1>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-secundario font-[var(--font-texto)] uppercase tracking-wider mb-6">
-                Colegio Genérico
-            </h2>
-            <div class="h-1 w-20 bg-principal mx-auto mb-6"></div>
-            <div class="flex items-center justify-center gap-2 mb-2">
-                <i class="fas fa-graduation-cap text-3xl sm:text-4xl text-principal"></i>
-                <h3 class="text-4xl sm:text-5xl font-bold text-gray-700 font-[var(--font-cursiva)] leading-tight">
-                    Alejandra Yudith Benítez Escobar
-                </h3>
-            </div>
-        </div>
-
-        <div class="p-6 sm:p-10 text-center">
-            <p class="text-lg text-gray-700 italic font-[var(--font-texto)] mb-10 border-l-4 border-principal pl-4">
-                "El final de una etapa marca el comienzo de nuevos horizontes. Hoy celebramos no solo los logros alcanzados, sino también los sueños que están por venir."
-            </p>
-
-            <h4 class="text-2xl font-bold text-secundario mb-4 font-[var(--font-titulo)] uppercase">Cuenta Regresiva</h4>
-            <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto mb-10 p-4 border rounded-lg bg-gray-50">
-                <div class="text-center">
-                    <div class="text-3xl sm:text-5xl font-extrabold text-principal" id="dias">00</div>
-                    <div class="text-sm text-gray-600 uppercase mt-1">Días</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl sm:text-5xl font-extrabold text-principal" id="horas">00</div>
-                    <div class="text-sm text-gray-600 uppercase mt-1">Horas</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl sm:text-5xl font-extrabold text-principal" id="minutos">00</div>
-                    <div class="text-sm text-gray-600 uppercase mt-1">Minutos</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl sm:text-5xl font-extrabold text-principal" id="segundos">00</div>
-                    <div class="text-sm text-gray-600 uppercase mt-1">Segundos</div>
-                </div>
-            </div>
-            
-            <div class="h-1 w-1/3 bg-gray-200 mx-auto mb-10"></div>
-
-            <div class="mb-10">
-                <div class="text-4xl font-[var(--font-titulo)] text-secundario mb-4">
-                    <i class="fas fa-calendar-alt mr-2 text-principal"></i>
-                    <span class="font-extrabold text-principal">19 | 12 | 2025</span>
-                </div>
-                <div class="text-3xl font-semibold font-[var(--font-titulo)] text-gray-700 mb-6">
-                    <span class="text-xl text-gray-500 font-normal">Horario:</span> 20:30 HS
-                </div>
-            </div>
-
-            <div class="space-y-4 mb-10">
-                <div class="text-2xl text-gray-800 font-[var(--font-texto)] font-semibold">
-                    <i class="fas fa-map-marker-alt mr-2 text-principal"></i>
-                    Continental Parquet
-                    <br>
-                    <span class="text-xl font-normal text-gray-600">Km 4</span>
-                </div>
-                <a href="https://maps.app.goo.gl/JwGMqBGtSMEQaNit7" 
-                    target="_blank" 
-                    class="inline-block px-8 py-3 text-white rounded-full font-bold btn-accion shadow-lg">
-                    <i class="fas fa-route mr-2"></i>
-                    Ver Ubicación en Mapa
-                </a>
-            </div>
-
-            <div class="bg-[var(--color-fondo-claro)] p-6 rounded-lg">
-                <h4 class="text-2xl font-[var(--font-titulo)] text-principal text-center mb-6 border-b pb-2">
-                    Código de Vestimenta
-                </h4>
-                <div class="grid grid-cols-3 gap-4">
-                    <div class="col-span-3 text-center">
-                        <i class="fas fa-user-tie text-4xl text-secundario mb-2"></i>
-                        <p class="text-gray-700 font-bold text-lg">Elegante</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-10 pt-4 border-t border-gray-200">
-                <p class="text-lg mb-6 text-gray-700 font-semibold">Agradecemos confirmar asistencia hasta el 30/11/2025</p>
-                <a href="#" id="confirm-button"
-                    class="inline-block px-10 py-4 text-white font-bold rounded-full text-lg uppercase tracking-wider btn-accion shadow-xl">
-                    <i class="fas fa-check-circle mr-2"></i>
-                    Confirmar Asistencia
-                </a>
-            </div>
-            
-        </div>
-
-        <footer class="bg-gradient-to-t from-white to-[var(--color-fondo-claro)] py-6 px-4 text-center border-t border-gray
+            right: -25
