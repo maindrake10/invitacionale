@@ -80,27 +80,21 @@
         .btn-accion {
             background-color: var(--color-secundario);
             transition: all 0.3s ease;
-            outline-offset: 2px; /* Espacio entre el botón y el borde */
+            outline-offset: 2px;
         }
-
-        /* Efecto al pasar el mouse (hover) */
         .btn-accion:hover {
             background-color: var(--color-principal);
             transform: scale(1.05);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
-
-        /* EFECTO AL HACER CLICK (Active) */
         .btn-accion:active {
-            transform: scale(0.98); /* Ligeramente más pequeño para simular presión */
-            background-color: #366b93; /* Un tono un poco más oscuro que el secundario */
-            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2) inset; /* Sombra interior */
-            border: 1px solid var(--color-secundario); /* Borde más fino al hacer click */
+            transform: scale(0.98);
+            background-color: #366b93; 
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2) inset;
+            border: 1px solid var(--color-secundario);
         }
-        
-        /* Borde más fino para el foco (usado al hacer click o navegar con teclado) */
         .btn-accion:focus {
-            outline: 1px solid var(--color-principal); /* Borde delgado y elegante en color principal */
+            outline: 1px solid var(--color-principal);
             outline-offset: 3px;
         }
 
@@ -123,7 +117,7 @@
             <div class="h-1 w-20 bg-principal mx-auto mb-6"></div>
             
             <div class="flex flex-col items-center justify-center mb-4">
-                <i class="fas fa-graduation-cap text-4xl sm:text-5xl text-principal mb-2"></i>
+                <i class="fas fa-graduation-cap text-5xl sm:text-6xl text-principal mb-2"></i> 
                 <h3 class="font-bold text-gray-700 nombre-graduada">
                     Alejandra Yudith Benítez Escobar
                 </h3>
@@ -162,8 +156,8 @@
                     <i class="fas fa-calendar-alt mr-2 text-principal"></i>
                     <span class="font-extrabold text-principal">19 | 12 | 2025</span>
                 </div>
-                <div class="text-2xl sm:text-3xl font-semibold font-[var(--font-titulo)] text-gray-700 mb-6">
-                    <span class="text-lg text-gray-500 font-normal">Horario:</span> 20:30 HS
+                <div class="text-3xl font-semibold font-[var(--font-titulo)] text-principal mb-6">
+                    20:30 HS
                 </div>
             </div>
 
